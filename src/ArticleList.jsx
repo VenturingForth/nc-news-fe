@@ -17,7 +17,7 @@ export default function ArticleList(){
         <ul>
             {articles.map((article)=>{
                 return (
-                    <ArticleCard article={article} />
+                    <ArticleCard article={article} key={`${article.title}${article.id}`} />
                 )
             })}
         </ul>
