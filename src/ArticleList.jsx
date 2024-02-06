@@ -3,9 +3,9 @@ import { fetchArticles } from "./api/api.js"
 import ArticleCard from "./ArticleCard.jsx";
 import Loading from "./Loading.jsx";
 
-export default function ArticleList({isLoading, setIsLoading}){
+export default function ArticleList(){
     const [articles, setArticles] = useState([]);
-    console.log(isLoading);
+    const [isLoading, setIsLoading] = useState([]);
     
     useEffect(() => {
         setIsLoading(true)
@@ -25,7 +25,10 @@ export default function ArticleList({isLoading, setIsLoading}){
         <ul>
             {articles.map((article)=>{
                 return (
-                    <ArticleCard article={article} key={`${article.title}${article.id}`} />
+                    <ArticleCard 
+                        article={article} 
+                        key={`${article.title}${article.id}`} 
+                    />
                 )
             })}
         </ul>
