@@ -5,8 +5,8 @@ import ArticleList from './ArticleList.jsx'
 import ArticlePage from './ArticlePage.jsx'
 import { Routes, Route } from 'react-router-dom'
 
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -15,7 +15,6 @@ function App() {
         <Route path="/" element={<ArticleList />} />
         <Route path="/article/:article_id" element={<ArticlePage />} />
       </Routes>
-      <ArticleList />
     </>
   )
 }
