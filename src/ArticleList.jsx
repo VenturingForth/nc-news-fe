@@ -5,10 +5,9 @@ import Loading from "./Loading.jsx";
 
 export default function ArticleList(){
     const [articles, setArticles] = useState([]);
-    const [isLoading, setIsLoading] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     
     useEffect(() => {
-        setIsLoading(true)
         fetchArticles().then((data) => {
             setArticles(data);
             setIsLoading(false);

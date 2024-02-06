@@ -23,4 +23,17 @@ function fetchArticleComments(articleId){
     })
 }
 
-export { fetchArticles, fetchArticleById, fetchArticleComments };
+function patchArticleVotes(articleId, inc_votes){
+    const request = { inc_votes: inc_votes }
+    return axios.patch(`${baseUrl}/articles/${articleId}`, request)
+    .then((response) => {
+        return response;
+    })
+}
+
+export { 
+    fetchArticles, 
+    fetchArticleById, 
+    fetchArticleComments, 
+    patchArticleVotes 
+};
