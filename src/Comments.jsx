@@ -21,7 +21,9 @@ export default function Comments({article_id}){
     return (
         <>
             <h2>Comments {`(${comments.length})`}</h2>
-            <CommentForm />
+            <CommentForm 
+                article_id={article_id}
+            />
             {comments.map((comment)=>{
                 return (
                     <CommentCard 
