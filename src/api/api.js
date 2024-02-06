@@ -14,4 +14,11 @@ function fetchArticleById(articleId){
     })
 }
 
-export { fetchArticles, fetchArticleById };
+function fetchArticleComments(articleId){
+    return axios.get(`https://nc-news-6ukh.onrender.com/api/articles/${articleId}/comments`)
+    .then((response) => {
+        return response.data.comments;
+    })
+}
+
+export { fetchArticles, fetchArticleById, fetchArticleComments };
