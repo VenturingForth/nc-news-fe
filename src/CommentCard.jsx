@@ -6,7 +6,7 @@ export default function CommentsCard({comment}){
             <Card.Body>
                 <Card.Header>{`${comment.author} @ ${comment.created_at}`}</Card.Header>
                 <Card.Text>{`${comment.body}`}</Card.Text>
-                <Card.Footer>{`${comment.votes}`}</Card.Footer>
+                <Card.Footer>{`Votes: ${comment.votes}`}</Card.Footer>
             </Card.Body>
         </Card>
     )
