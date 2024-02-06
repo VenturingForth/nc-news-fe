@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchArticleComments } from "./api/api";
-import { Card } from "react-bootstrap";
+import CommentCard from "./CommentCard.jsx";
 
 export default function Comments({article_id}){
     const [ comments, setComments ] = useState([]);
@@ -12,9 +12,10 @@ export default function Comments({article_id}){
 
     return (
         <>
+            <h2>Comments {`(${comments.length})`}</h2>
             {comments.map((comment)=>{
                 return (
-                    <CommentCard comment={comment} />
+                    <CommentCard comment={comment} key={comment.comment_id}/>
                 )
             })}
         </>
