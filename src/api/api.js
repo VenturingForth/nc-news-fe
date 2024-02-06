@@ -39,5 +39,6 @@ export {
     fetchArticles, 
     fetchArticleById, 
     fetchArticleComments, 
-    patchArticleVotes 
+    patchArticleVotes,
+    postArticleComment
 };
