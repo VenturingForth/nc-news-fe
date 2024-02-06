@@ -31,6 +31,10 @@ function patchArticleVotes(articleId, inc_votes){
     })
 }
 
+function postArticleComment(articleId, username, comment){
+    const request = {}
+}
+
 export { 
     fetchArticles, 
     fetchArticleById, 

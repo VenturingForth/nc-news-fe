@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchArticleComments } from "./api/api";
 import CommentCard from "./CommentCard.jsx";
+import CommentForm from "./CommentForm.jsx";
 import Loading from "./Loading.jsx";
 
 export default function Comments({article_id}){
@@ -20,6 +21,7 @@ export default function Comments({article_id}){
     return (
         <>
             <h2>Comments {`(${comments.length})`}</h2>
+            <CommentForm />
             {comments.map((comment)=>{
                 return (
                     <CommentCard 
