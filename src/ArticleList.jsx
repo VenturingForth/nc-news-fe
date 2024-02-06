@@ -11,7 +11,6 @@ export default function ArticleList(){
         }
         )
     }, [])
-    console.log(articles, "<-- articles");
     
     return (
         <ul>
