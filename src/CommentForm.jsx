@@ -1,5 +1,5 @@
 import { Button, Form } from "react-bootstrap";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import UserContext from "./contexts/UserContext";
 import { postArticleComment } from "./api/api";
 

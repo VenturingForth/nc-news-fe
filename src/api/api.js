@@ -44,10 +44,18 @@ function postArticleComment(articleId, username, comment){
     })
 }
 
+function deleteComment(commentId){
+    return axios.delete(`${baseUrl}/comments/${commentId}`)
+    .then((response) => {
+        return response;
+    })
+}
+
 export { 
     fetchArticles, 
     fetchArticleById, 
     fetchArticleComments, 
     patchArticleVotes,
-    postArticleComment
+    postArticleComment,
+    deleteComment
 };
