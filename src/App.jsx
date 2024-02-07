@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './Header.jsx'
-import ArticleList from './ArticleList.jsx'
+import Home from './Home.jsx'
 import ArticlePage from './ArticlePage.jsx'
 import { Routes, Route } from 'react-router-dom'
 import UserContext from './contexts/UserContext.jsx'
@@ -18,8 +18,9 @@ function App() {
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <Header />
         <Routes>
-          <Route path="/" element={<ArticleList />} />
+          <Route path="/" element={<Home />} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
+          <Route path="/topic/:topic" element={<Home />} />
         </Routes>
       </UserContext.Provider>
     </>
