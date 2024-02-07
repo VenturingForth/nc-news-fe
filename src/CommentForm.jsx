@@ -6,6 +6,7 @@ import { postArticleComment } from "./api/api";
 export default function CommentForm({article_id}){
     const { loggedInUser } = useContext(UserContext);
     const [ isLoading, setIsLoading ] = useState(false);
+    const [ isError, setIsError ] = useState(false);
     const [ userComment, setUserComment ] = useState("")
 
     function handleCommentChange(event){
@@ -14,18 +15,21 @@ export default function CommentForm({article_id}){
     
     function handleCommentSubmit(event){
         event.preventDefault();
-        event.target.form[0].value = "";
         setIsLoading(true);
         postArticleComment(article_id, loggedInUser.username, userComment).then((data) => {
+            event.target.form[0].value = "";
+            setIsLoading(false);
+            setUserComment("");
+            if(isError){
+                setIsError(false);
+            }
             return data;
         }).catch((err) => {
+            setIsError(true);
+            setIsLoading(false);
             console.log(err);
         })
     }
-
-    useEffect(()=>{
-
-    },[])
 
     return (
         <Form>
@@ -33,7 +37,14 @@ export default function CommentForm({article_id}){
                 <Form.Label>Leave a comment on this article, {loggedInUser.username}.</Form.Label>
                 <Form.Control as="textarea" rows={4} onChange={handleCommentChange}/>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={() => handleCommentSubmit(event)}>Submit</Button>
+            <Form.Text>{isError ? "Your comment could not be posted, please try again. \n" : null}</Form.Text>
+            <Button 
+                variant="primary" 
+                type="submit" 
+                disabled={isLoading || !userComment.length}
+                onClick={() => handleCommentSubmit(event)}>
+                    {isLoading ? 'Posting...' : 'Submit'}
+                </Button>
         </Form>
     )
 }

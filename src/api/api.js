@@ -32,14 +32,12 @@ function patchArticleVotes(articleId, inc_votes){
 }
 
 function postArticleComment(articleId, username, comment){
-    console.log(articleId, "<-- article id")
-    console.log(comment, "<-- comment")
-    console.log(username, "<-- username")
-    const request = {
-        username: "tickle122",
-        body: "I like Dorritos"
+    const request = { comment: {
+        username: username,
+        body: comment
+        }
     }
-    console.log(request, "<-- request object")
+
     return axios.post(`${baseUrl}/articles/${articleId}/comments`, request)
     .then ((response) => {
         return response;
