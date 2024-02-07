@@ -31,9 +31,23 @@ function patchArticleVotes(articleId, inc_votes){
     })
 }
 
+function postArticleComment(articleId, username, comment){
+    const request = { comment: {
+        username: username,
+        body: comment
+        }
+    }
+
+    return axios.post(`${baseUrl}/articles/${articleId}/comments`, request)
+    .then ((response) => {
+        return response;
+    })
+}
+
 export { 
     fetchArticles, 
     fetchArticleById, 
     fetchArticleComments, 
-    patchArticleVotes 
+    patchArticleVotes,
+    postArticleComment
 };
