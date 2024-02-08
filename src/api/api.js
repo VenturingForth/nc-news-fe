@@ -18,6 +18,13 @@ function fetchArticles(topic, sortBy, orderBy){
     })
 }
 
+function fetchTopics(){
+    return axios.get(`${baseUrl}/topics`)
+    .then((response) => {
+        return response.data.topics;
+    })
+}
+
 function fetchArticleById(articleId){
     return axios.get(`${baseUrl}/articles/${articleId}`)
     .then((response) => {
@@ -61,7 +68,8 @@ function deleteComment(commentId){
 }
 
 export { 
-    fetchArticles, 
+    fetchArticles,
+    fetchTopics, 
     fetchArticleById, 
     fetchArticleComments, 
     patchArticleVotes,

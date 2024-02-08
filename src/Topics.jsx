@@ -1,14 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { fetchTopics } from "./api/api";
 
 export default function Topics({topic, setTopic}){
+    const [loading, isLoading] = useState(true)
+    const [topics, setTopics] = useState([])
     const navigate = useNavigate();
 
     function handleTopicClick(event){
         event.preventDefault();
         setTopic(event.target.value);
     }
+
+    useEffect(() => {
+        fetchTopics()
+        .then((data) => {
+            setTopics(data)
+        })
+    },[])
 
     useEffect(() => {
         if(topic === "all"){
@@ -25,29 +35,20 @@ export default function Topics({topic, setTopic}){
                 value={"all"}
                 active={topic==="all"}
                 type="button">
-                    All
+                    all
             </Button>
-            <Button 
-                onClick={() => {handleTopicClick(event)}} 
-                value={"coding"}
-                active={topic==="coding"}
-                type="button">
-                    Coding
-            </Button>
-            <Button 
-                onClick={() => {handleTopicClick(event)}} 
-                value={"cooking"}
-                active={topic==="cooking"}
-                type="button">
-                    Cooking
-            </Button>
-            <Button 
-                onClick={() => {handleTopicClick(event)}} 
-                value={"football"}
-                active={topic==="football"}
-                type="button">
-                    Football
-            </Button>
+            {topics.map((tpc) => {
+                return (
+                    <Button 
+                        onClick={() => {handleTopicClick(event)}}
+                        value={tpc.slug}
+                        active={topic===tpc.slug}
+                        type="button">
+                        {tpc.slug}
+                    </Button>
+                )
+            })}
+            <br />
         </>
     )
 }
