@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Form from 'react-bootstrap/Form'
 import { useNavigate } from 'react-router-dom';
 
-export default function SortBar({sortBy, setSortBy, orderBy, setOrderBy}){
+export default function SortBar({topic, setTopic, sortBy, setSortBy, orderBy, setOrderBy}){
     const navigate = useNavigate();
 
     function handleSortChange(event){
@@ -12,6 +12,9 @@ export default function SortBar({sortBy, setSortBy, orderBy, setOrderBy}){
     function handleOrderChange(event){
         setOrderBy(event.target.value);
     }
+
+    useEffect(() => {
+    }, [])
 
     useEffect(() => {
         navigate(`?sort_by=${sortBy}&order=${orderBy}`)

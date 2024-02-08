@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import UserContext from './contexts/UserContext.jsx'
 
 function App() {
+  const [topic, setTopic] = useState("all");
   const [loggedInUser, setLoggedInUser] = useState({
     username: "grumpy19",
     name: "Paul Grump",
@@ -16,11 +17,11 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-        <Header />
+        <Header setTopic={setTopic}/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home topic={topic} setTopic={setTopic}/>} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
-          <Route path="/topic/:topic" element={<Home />} />
+          <Route path="/topic/:topic" element={<Home topic={topic} setTopic={setTopic}/>} />
         </Routes>
       </UserContext.Provider>
     </>
