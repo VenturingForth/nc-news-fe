@@ -40,6 +40,7 @@ export default function Topics({topic, setTopic}){
             {topics.map((tpc) => {
                 return (
                     <Button 
+                        key={`${tpc.slug}-topic`}
                         onClick={() => {handleTopicClick(event)}}
                         value={tpc.slug}
                         active={topic===tpc.slug}
