@@ -3,6 +3,7 @@ import './App.css'
 import Header from './Header.jsx'
 import Home from './Home.jsx'
 import ArticlePage from './ArticlePage.jsx'
+import Error from './Error.jsx'
 import { Routes, Route } from 'react-router-dom'
 import UserContext from './contexts/UserContext.jsx'
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home topic={topic} setTopic={setTopic}/>} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
           <Route path="/topic/:topic" element={<Home topic={topic} setTopic={setTopic}/>} />
+          <Route path="*" element={<Error error={{status: 400, msg: "This resource doesn't exist, go home."}}/>}/>
         </Routes>
       </UserContext.Provider>
     </>
