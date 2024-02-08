@@ -2,8 +2,15 @@ import axios from "axios";
 
 const baseUrl = "https://nc-news-6ukh.onrender.com/api";
 
-function fetchArticles(){
-    return axios.get(`${baseUrl}/articles`)
+function fetchArticles(topic){
+    if(topic === "all"){
+        topic = undefined;
+    }
+    return axios.get(`${baseUrl}/articles`, {
+        params: {
+            topic: topic
+        }
+    })
     .then((response) => {
         return response.data.articles;
     })
