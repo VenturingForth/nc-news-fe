@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Article from './Article.jsx';
 import Comments from './Comments.jsx';
 
-export default function articlePage(isLoading, setIsLoading){
+export default function articlePage(){
     const { article_id } = useParams();
 
     return (
