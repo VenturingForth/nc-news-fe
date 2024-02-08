@@ -20,7 +20,6 @@ export default function Topics({topic, setTopic}){
 
     return (
         <>
-            <h1>THE TOPIC IS {topic}</h1>
             <Button 
                 onClick={() => {handleTopicClick(event)}} 
                 value={"all"}

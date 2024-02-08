@@ -17,11 +17,6 @@ export default function ArticleList(){
         newParams.set('order', direction);
         setSearchParams(newParams);
     }
-
-    useEffect(() => {
-        //re-render when sort or order params are updated in URL
-        console.log(sortByQuery, orderQuery, "<-- SEARCH PARAMS");
-    }, [sortByQuery, orderQuery])
     
     useEffect(() => {
         setIsLoading(true);
