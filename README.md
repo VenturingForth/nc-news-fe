@@ -27,7 +27,7 @@ This app was built in Node v20.4.0, and it is recommended that this be the minim
 7. Play. Enjoy. Leave feedback if you have any.
 
 ## Critical Feedback
-If you think improvements could be made or features could be added, please leave a comment or suggestion here.
+If you think improvements could be made or features could be added, please [raise an issue](https://github.com/VenturingForth/nc-news-fe/issues/new) and leave your comments and suggestions to be addressed.
 
 ## Thank You...
 ...for taking the time to read this work. It has been an incredible learning experience, and I look forward to seeing it take it's final shape over the coming weeks.
