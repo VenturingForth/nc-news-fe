@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ArticleCard({article}){
     return (
-        <Card style={{width: '36rem'}}>
+        <Card className="card-article" >
             <Card.Img variant="top" src={article.article_img_url} />
             <Card.Body>
                 <Card.Header>Topic: {article.topic}</Card.Header>

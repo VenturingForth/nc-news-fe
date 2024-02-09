@@ -1,4 +1,41 @@
-#root {
+body {
+  width: auto;
+}
+
+header {
+  background-color: #F51D2E;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  width: auto;
+  padding: 30px 0 30px 0;
+}
+
+nav {
+  text-align: center;
+  padding: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.banner {
+  color: #FFFFFF;
+}
+
+.btn {
+  margin: 2px 5px 2px 5px;
+  height: 5vh;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn .btn-topic {
+  background-color: black !important;
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +76,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

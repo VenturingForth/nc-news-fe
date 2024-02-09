@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { fetchTopics } from "./api/api";
 
@@ -31,6 +31,7 @@ export default function Topics({topic, setTopic}){
     return (
         <>
             <Button 
+                variant="primary"
                 onClick={() => {handleTopicClick(event)}} 
                 value={"all"}
                 active={topic==="all"}
@@ -40,6 +41,7 @@ export default function Topics({topic, setTopic}){
             {topics.map((tpc) => {
                 return (
                     <Button 
+                        variant="topic"
                         key={`${tpc.slug}-topic`}
                         onClick={() => {handleTopicClick(event)}}
                         value={tpc.slug}
@@ -49,7 +51,6 @@ export default function Topics({topic, setTopic}){
                     </Button>
                 )
             })}
-            <br />
         </>
     )
 }

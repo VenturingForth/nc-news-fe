@@ -5,8 +5,10 @@ export default function Header({setTopic}){
     }
 
     return (
-        <Link to="/" onClick={()=>{handleHeaderClick()}}>
+        <header>
+        <Link to="/" className="banner" onClick={()=>{handleHeaderClick()}}>
         <h1>NC News</h1>
         </Link>
+        </header>
     )
 }

@@ -14,12 +14,14 @@ export default function Home({topic, setTopic}){
 
     return(
         <>
+        <nav>
         <Topics topic={topic} setTopic={setTopic}/>
         <SortBar 
             topic={topic} setTopic={setTopic}
             sortBy={sortBy} setSortBy={setSortBy}
             orderBy={orderBy} setOrderBy={setOrderBy}
         />
+        </nav>
         <ArticleList 
             topic={topic}
             sortBy={sortBy}
