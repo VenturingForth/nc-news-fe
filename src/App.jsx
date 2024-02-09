@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home topic={topic} setTopic={setTopic}/>} />
           <Route path="/article/:article_id" element={<ArticlePage />} />
           <Route path="/topic/:topic" element={<Home topic={topic} setTopic={setTopic}/>} />
-          <Route path="*" element={<Error error={{status: 400, msg: "This resource doesn't exist, go home."}}/>}/>
+          <Route path="*" element={<Error error={{status: 404, msg: "This resource doesn't exist, go home."}}/>}/>
         </Routes>
       </UserContext.Provider>
     </>
